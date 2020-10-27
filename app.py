@@ -1,19 +1,79 @@
 from flask import Flask, request, jsonify, render_template, url_for, flash, redirect
-import pandas as pd
+from baselines import load
+import numpy as np
+
 
 app = Flask(__name__)
+
+model_api = load("./data/tuned_RFR.pickle")
+
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route('/inference')
+
+@app.route('/getapi', methods=['GET'])
+def getapi():
+    """
+    GET request at a sentence level
+    http://127.0.0.1:5000/getapi?text=hi%20there,%20how%20are%20you
+    """
+    text = request.args.get('text', default='the best hotel i stayed so far', type=str)
+    app.logger.info("Input: " + text)
+    label = model_api.predict([text]).tolist()[0]
+    prob = model_api.predict_proba([text]).max()
+    result = dict()
+    result["input"] = text
+    result["Output"] = label
+    result["Probability"] = prob
+    app.logger.info("model_output: " + str(result))
+    result = jsonify(result)
+    return result
+
+
+@app.route('/postapi', methods=['POST'])
+def postapi():
+    """
+    POST request at a sentence level
+    """
+    json_data = request.json
+    text = json_data['rv_text']
+    app.logger.info("Input: " + text)
+    label = model_api.predict([text]).tolist()[0]
+    prob = model_api.predict_proba([text]).max()
+    result = dict()
+    result["input"] = text
+    result["Output"] = label
+    result["Probability"] = prob
+    app.logger.info("model_output: " + str(result))
+    result = jsonify(result)
+    return result
+
+
+@app.route('/inference', methods=('GET', 'POST'))
 def inference():
-    return "Inference page"
+    if request.method == 'POST':
+
+        req = [int(x) for x in request.form.values()]
+        final_features = [np.array(req)]
+
+        if not req:
+            flash('Missing values')
+        else:
+            price_prediction = model_api.predict(final_features).tolist()[0]
+            result = dict()
+            result["input"] = req
+            result["output"] = price_prediction
+            app.logger.info("model_output: " + str(result))
+            return render_template('inference.html', price_prediction=price_prediction)
+    return render_template("inference.html")
+
 
 @app.route('/about')
 def about():
     return "about page"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
