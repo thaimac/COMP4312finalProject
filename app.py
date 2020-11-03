@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template, url_for, flash, redirect
 from baselines import load
 import numpy as np
-
+from db import get_data, add_data
 
 app = Flask(__name__)
 
@@ -19,35 +19,30 @@ def getapi():
     GET request at a sentence level
     http://127.0.0.1:5000/getapi?text=hi%20there,%20how%20are%20you
     """
-    text = request.args.get('text', default='the best hotel i stayed so far', type=str)
-    app.logger.info("Input: " + text)
-    label = model_api.predict([text]).tolist()[0]
-    prob = model_api.predict_proba([text]).max()
+    form_data = request.form.to_dict()
+    req = [int(x) for x in request.form.values()]
+    final_features = [np.array(req)]
+    price_prediction = model_api.predict(final_features).tolist()[0]
     result = dict()
-    result["input"] = text
-    result["Output"] = label
-    result["Probability"] = prob
+    result["input"] = form_data
+    result["Output"] = price_prediction
     app.logger.info("model_output: " + str(result))
-    result = jsonify(result)
     return result
-
 
 @app.route('/postapi', methods=['POST'])
 def postapi():
     """
     POST request at a sentence level
     """
-    json_data = request.json
-    text = json_data['rv_text']
-    app.logger.info("Input: " + text)
-    label = model_api.predict([text]).tolist()[0]
-    prob = model_api.predict_proba([text]).max()
+    form_data = request.form.to_dict()
+    app.logger.info("Input: " + form_data)
+    req = [int(x) for x in request.form.values()]
+    final_features = [np.array(req)]
+    price_prediction = model_api.predict([final_features]).tolist()[0]
     result = dict()
-    result["input"] = text
-    result["Output"] = label
-    result["Probability"] = prob
+    result["input"] = form_data
+    result["Output"] = price_prediction
     app.logger.info("model_output: " + str(result))
-    result = jsonify(result)
     return result
 
 
@@ -57,6 +52,7 @@ def inference():
 
         req = [int(x) for x in request.form.values()]
         final_features = [np.array(req)]
+        data = request.form.to_dict()
 
         if not req:
             flash('Missing values')
@@ -65,9 +61,24 @@ def inference():
             result = dict()
             result["input"] = req
             result["output"] = price_prediction
+            data.update({'price_prediction': result['output']})
+            add_data(data)
             app.logger.info("model_output: " + str(result))
             return render_template('inference.html', price_prediction=price_prediction)
     return render_template("inference.html")
+
+
+@app.route('/stored_inferences', methods=['POST', 'GET'])
+def stored_inferences():
+    if request.method == 'POST':
+        if not request.is_json:
+            return jsonify({"msg": "Missing JSON in request"}), 400
+
+        add_data(request.get_json())
+        return 'Song Added'
+
+    return get_data()
+    return render_template("stored_inferences.html")
 
 
 @app.route('/about')
