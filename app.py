@@ -1,5 +1,8 @@
+import os
+import pymysql
 from flask import Flask, request, jsonify, render_template, url_for, flash, redirect
 from baselines import load
+from db import get_table, add_inference
 import numpy as np
 
 
@@ -69,11 +72,21 @@ def inference():
             return render_template('inference.html', price_prediction=price_prediction)
     return render_template("inference.html")
 
+@app.route('/stored_inferences', methods=['POST', 'GET'])
+def stored_inferences():
+    if request.method == 'POST':
+        if not request.is_json:
+            return jsonify({"msg": "Missing JSON in request"}), 400  
+
+        add_inference(request.get_json())
+        return 'Song Added'
+
+    return get_table()
+    return render_template("stored_inferences.html")
 
 @app.route('/about')
 def about():
     return "about page"
-
 
 if __name__ == '__main__':
     app.run(debug=True)
