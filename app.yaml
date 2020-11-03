@@ -1,0 +1,9 @@
+# [START gae_python38_cloudsql_config]
+runtime: python38
+
+env_variables:
+  CLOUD_SQL_USERNAME: iadmin
+  CLOUD_SQL_PASSWORD: newpassword
+  CLOUD_SQL_DATABASE_NAME: inferences
+  CLOUD_SQL_CONNECTION_NAME: final3-294005:us-east1:final3
+# [END gae_python38_cloudsql_config]
