@@ -75,7 +75,7 @@ def stored_inferences():
             return jsonify({"msg": "Missing JSON in request"}), 400
 
         add_data(request.get_json())
-        return 'Song Added'
+        return 'Inference Added'
 
     return get_data()
     return render_template("stored_inferences.html")
