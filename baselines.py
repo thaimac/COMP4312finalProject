@@ -66,8 +66,8 @@ def tune(rfr, xtrain, ytrain, xtest, ytest):
 
 
 def train():
-    trainset = pd.read_csv("./data/train2.csv", index_col=0)
-    testset = pd.read_csv("./data/test2.csv", index_col=0)
+    trainset = pd.read_csv("./data/train.csv", index_col=0)
+    testset = pd.read_csv("./data/test.csv", index_col=0)
     xtrain, ytrain = trainset.drop(columns=['median_house_value']), trainset['median_house_value']
     xtest, ytest = testset.drop(columns=["median_house_value"]), testset["median_house_value"]
 

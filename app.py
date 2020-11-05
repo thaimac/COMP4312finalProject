@@ -77,13 +77,13 @@ def stored_inferences():
         add_data(request.get_json())
         return 'Inference Added'
 
-    return get_data()
-    return render_template("stored_inferences.html")
+    #return get_data()
+    return render_template("stored_inferences.html", got_data=get_data())
 
 
 @app.route('/about')
 def about():
-    return "about page"
+    return render_template("about.html")
 
 
 if __name__ == '__main__':

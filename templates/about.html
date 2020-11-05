@@ -2,7 +2,7 @@
 
 {% block content %}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./static/css/about.css" /> 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/about.css') }}">
     <section class="about" id="about">
         <div class="container">
             <div class="about-details">
@@ -14,7 +14,7 @@
                 </p>
               </div>
           <div class="profile-img">
-            <img src="./images/calculator.jpg" />
+            <img src="/static/calculator.jpg" />
           </div>
         </div>
       </section>
@@ -25,7 +25,7 @@
       <div class="team">
         <div class="member">
           <div class="image-container">
-            <img src="./images/steam11.png" class="profile-img" />
+            <img src="/static/steam11.png" class="profile-img" />
           </div>
           <h1>Kris</h1>
           <h2>Database Admin</h2>
@@ -48,7 +48,7 @@
         </div>
         <div class="member">
           <div class="image-container">
-            <img src="./images/steam22.png" class="profile-img" />
+            <img src="/static/steam22.png" class="profile-img" />
           </div>
           <h1>Justin</h1>
           <h2>Tester</h2>
@@ -71,7 +71,7 @@
         </div>
         <div class="member">
           <div class="image-container">
-            <img src="./images/steam33.png" class="profile-img" />
+            <img src="/static/steam33.png" class="profile-img" />
           </div>
           <h1>Sanjana</h1>
           <h2>Designer</h2>
@@ -94,8 +94,7 @@
         </div>
         <div class="member">
           <div class="image-container">
-            <img src="./images/steam44.png" class="profile-img" />
-            <img src="./images/steam44.png" class="profile-img" />
+            <img src="/static/steam44.png" class="profile-img" />
           </div>
           <h1>Tyler</h1>
           <h2>Developer</h2>
