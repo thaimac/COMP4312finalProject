@@ -5,7 +5,7 @@ from google.cloud import bigquery
 
 
 def open_connection():
-    connection = pymysql.connect(host='127.0.0.1',
+    connection = pymysql.connect(host='34.72.92.23',
                                 user='root',
                                 password='dbtest',
                                 db='inference_db')
