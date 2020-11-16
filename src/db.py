@@ -3,9 +3,9 @@ import pymysql
 from flask import jsonify
 from google.cloud import bigquery
 
-
+# from compute engine host='34.72.92.23
 def open_connection():
-    connection = pymysql.connect(host='34.72.92.23',
+    connection = pymysql.connect(host='127.0.0.1',
                                 user='root',
                                 password='dbtest',
                                 db='inference_db')
