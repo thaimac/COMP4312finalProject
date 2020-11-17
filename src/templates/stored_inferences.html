@@ -33,28 +33,23 @@
 					</thead>
 
 					<tbody>
-						<script>
-							var got_data = [
-												{'longitude': '123', 'latitude': '23213','house_age': '2313', 'annual_income': '125.60', 'inland': '1', 'near_ocean': '0', 'near_bay': '1', 'number_of_rooms': '4', 'price_prediction': '23123'},
-												{'longitude': '123', 'latitude': '545666','house_age': '2313', 'annual_income': '125.60', 'inland': '1', 'near_ocean': '0', 'near_bay': '1', 'number_of_rooms': '4', 'price_prediction': '23123'}
-											]
-
-							for (var i = 0; i < got_data.length; i++) {
+					{% data in data %}
+						<script>									
+							for (var i = 0; i < data.length; i++) {
 								document.write('<tr>');
-									document.write('<td>' + got_data[i].longitude + '</td>');
-									document.write('<td>' + got_data[i].latitude + '</td>');
-									document.write('<td>' + got_data[i].house_age + '</td>');
-									document.write('<td>' + got_data[i].annual_income + '</td>');
-									document.write('<td>' + got_data[i].inland + '</td>');
-									document.write('<td>' + got_data[i].near_ocean + '</td>');
-									document.write('<td>' + got_data[i].near_bay + '</td>');
-									document.write('<td>' + got_data[i].number_of_rooms + '</td>');
-									document.write('<td>' + got_data[i].price_prediction + '</td>');
+									document.write('<td>' + data[i][0] + '</td>');
+									document.write('<td>' + data[i][1] + '</td>');
+									document.write('<td>' + data[i][2] + '</td>');
+									document.write('<td>' + data[i][3] + '</td>');
+									document.write('<td>' + data[i][4] + '</td>');
+									document.write('<td>' + data[i][5] + '</td>');
+									document.write('<td>' + data[i][6] + '</td>');
+									document.write('<td>' + data[i][7] + '</td>');
+									document.write('<td>' + data[i][8] + '</td>');
 								document.write('</tr>');
-							}
+							}			
 						</script>
-												
-					</tbody>
+					{% end %}
 				</table>
 
 				<script>
