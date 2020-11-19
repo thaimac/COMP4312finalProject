@@ -5,7 +5,7 @@ from google.cloud import bigquery
 
 # from compute engine host='34.72.92.23
 def open_connection():
-    connection = pymysql.connect(host='127.0.0.1',
+    connection = pymysql.connect(host='34.72.92.23',
                                 user='root',
                                 password='dbtest',
                                 db='inference_db')
@@ -18,7 +18,6 @@ def get_data():
         result = cursor.execute('SELECT * FROM inference_data;')
         data = cursor.fetchall()
         if result > 0:
-            print(json.dumps(data))
             got_data = json.dumps(data)
         else:
             got_data = 'No data in DB'
