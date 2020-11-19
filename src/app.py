@@ -78,8 +78,8 @@ def stored_inferences():
         add_data(request.get_json())
         return 'Inference Added'
 
-    #return render_template("stored_inferences.html", data=get_data())
-    return get_data()
+    return render_template("stored_inferences.html", data=get_data())
+    #return get_data()
 
 
 @app.route('/about')
@@ -88,5 +88,5 @@ def about():
 
 
 if __name__ == '__main__':
-    #app.run(debug=True)
-    app.run(debug=True, host="0.0.0.0", port=8000)
+    app.run(debug=True)
+    #app.run(debug=True, host="0.0.0.0", port=8000)

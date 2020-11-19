@@ -1,11 +1,11 @@
 import os
 import pymysql
-from flask import jsonify
+from flask import jsonify, json
 from google.cloud import bigquery
 
 # from compute engine host='34.72.92.23
 def open_connection():
-    connection = pymysql.connect(host='34.72.92.23',
+    connection = pymysql.connect(host='127.0.0.1',
                                 user='root',
                                 password='dbtest',
                                 db='inference_db')
@@ -18,7 +18,8 @@ def get_data():
         result = cursor.execute('SELECT * FROM inference_data;')
         data = cursor.fetchall()
         if result > 0:
-            got_data = jsonify(data)
+            print(json.dumps(data))
+            got_data = json.dumps(data)
         else:
             got_data = 'No data in DB'
     conn.close()
