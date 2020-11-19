@@ -1,27 +1,9 @@
-{% extends 'base.html' %}
-{% block content %}
-
-
-<h1 style='color:black'>{% block title %} Welcome to our COMP4312 final project! {% endblock %}</h1>
-<h3 style='color:blue;border-style:solid;border-color:gray;text-align:center'>
-    This platform is intended to serve our machine learning model that has been designed to predict
-    the price of a house in California based on a series of characteristics
-</h3>
-
-<!--<link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">-->
-
-
-
-<img src="./static/plot1.png" height="500" width="800"  />
-<br />
-<img src="./static/plot2.jpg" height="500" width="800"  />
-<br />
-<img src="./static/plot3.png" height="500" width="800"  />
-<br />
-<img src="./static/plot4.png" height="500" width="800"  />
-<br />
-<img src="./static/plot5.png" height="500" width="800"  />
-
-
-
+{% extends 'base.html' %} {% block content %}
+<h1 class="block-title">{% block title %} Welcome to our COMP4312 final project! {% endblock %}</h1>
+<h3>This platform is intended to serve our machine learning model that has been designed to predict the price of a house in California based on a series of characteristics</h3>
+<img src="/static/plot1.png" class="notebook-img" />
+<img src="/static/plot2.jpg" class="notebook-img" />
+<img src="/static/plot3.png" class="notebook-img" />
+<img src="/static/plot4.png" class="notebook-img" />
+<img src="/static/plot5.png" class="notebook-img" />
 {% endblock %}
