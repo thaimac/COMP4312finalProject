@@ -1,21 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  creationTimestamp: "2020-11-15T23:15:43Z"
-  generation: 3
   labels:
     app: app
   name: app
   namespace: default
-  resourceVersion: "2776"
-  selfLink: /apis/apps/v1/namespaces/default/deployments/app
-  uid: 71ef1023-7aa5-4b82-90c3-de8d2561af61
 spec:
-  progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: app
@@ -26,38 +17,53 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: app
     spec:
       containers:
-      - image: gcr.io/final-project-kubernetes/app:latest
-        imagePullPolicy: Always
-        name: app
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2020-11-15T23:16:50Z"
-    lastUpdateTime: "2020-11-15T23:16:50Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2020-11-15T23:15:43Z"
-    lastUpdateTime: "2020-11-15T23:16:50Z"
-    message: ReplicaSet "app-df75cffcb" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 3
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
+        - image: gcr.io/fit-guide-296101/github.com/thaimac/comp4312finalproject
+          imagePullPolicy: IfNotPresent
+          name: app-sha256-1
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app: app
+  name: app-hpa-yosr
+  namespace: default
+spec:
+  maxReplicas: 5
+  metrics:
+    - resource:
+        name: cpu
+        targetAverageUtilization: 80
+      type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: app
+  name: app-service
+  namespace: default
+spec:
+  clusterIP: 10.4.13.109
+  externalTrafficPolicy: Cluster
+  ports:
+    - nodePort: 30285
+      port: 443
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    app: app
+  sessionAffinity: None
+  type: LoadBalancer
+
