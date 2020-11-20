@@ -65,8 +65,9 @@ def inference():
             data.update({'price_prediction': result['output']})
             add_data(data)
             app.logger.info("model_output: " + str(result))
-            return render_template('inference.html', price_prediction=price_prediction)
-    return render_template("inference.html")
+            return render_template('inference2test.html', price_prediction=price_prediction)
+            #return render_template('inference.html', price_prediction=price_prediction)
+    return render_template("inference2test.html")
 
 
 @app.route('/stored_inferences', methods=['POST', 'GET'])

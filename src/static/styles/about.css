@@ -207,7 +207,7 @@ li {
 
 @media screen and (max-width: 768px) {
   body {
-    background: url("/static/images/webBGWarp.jpg") no-repeat center fixed;
+    background: url("/static/webBGWarp.jpg") no-repeat center fixed;
     background-size: cover;
   }
 
