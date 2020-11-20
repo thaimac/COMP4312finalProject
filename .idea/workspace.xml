@@ -21,17 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6bdc1747-db5c-4b35-af07-bca3688a0925" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/tuned_RFR.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/tuned_RFR.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/styles/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/styles/about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/styles/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/styles/styles2test.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/styles/styles2test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/base2test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base2test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/inference.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/inference.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/inference2test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/inference2test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/stored_inferences.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/stored_inferences.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,12 +201,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="Python.app" />
       <item itemvalue="Python.baselines" />
-      <item itemvalue="Python.create_table_test" />
       <item itemvalue="Python.create_table_test (1)" />
+      <item itemvalue="Python.create_table_test" />
       <item itemvalue="Python.db" />
+      <item itemvalue="Docker.Dockerfile" />
     </list>
     <recent_temporary>
       <list>
