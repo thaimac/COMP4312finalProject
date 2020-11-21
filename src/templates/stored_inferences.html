@@ -1,112 +1,98 @@
-{% extends 'base2test.html' %}
-
-{% block content %}
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/shortcontent.css') }}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <body>
-	<h1 style="color:white">{% block title %}Database{% endblock %}</h1>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-8" style="padding-top:0.65%">
-				<table id="inference_table" class="table  table-striped" style="margin-left: auto;margin-right: auto">
-					<thead>
-						<tr role="row">
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Longitude</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Latitude</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>House Age</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Annual Income</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Inland</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Near Ocean</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Near Bay</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Number of Rooms</b></th>
-							<th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px;text-align:center"><b>Price Prediction</b></th>
-						</tr>
-					</thead>
+  <h1 style="color:black">{% block title %}Database{% endblock %}</h1>
 
-					<tbody>
-						<script>
-							for (var i = 0; i < {{data}}.length; i++) {
-								document.write('<tr>');
-									document.write('<td>' + {{data}}[i][0] + '</td>');
-									document.write('<td>' + {{data}}[i][1] + '</td>');
-									document.write('<td>' + {{data}}[i][2] + '</td>');
-									document.write('<td>' + {{data}}[i][3] + '</td>');
-									document.write('<td>' + {{data}}[i][4] + '</td>');
-									document.write('<td>' + {{data}}[i][5] + '</td>');
-									document.write('<td>' + {{data}}[i][6] + '</td>');
-									document.write('<td>' + {{data}}[i][7] + '</td>');
-									document.write('<td>' + {{data}}[i][8] + '</td>');
-								document.write('</tr>');
-							}
-						</script>
-				</table>
+  <div class="content">
+    <div class="row">
+      <div class="col-12 col-md-8" style="padding-top: 0.65%">
+        <table id="inference_table" class="table table-striped" style="margin-left: auto; margin-right: auto">
+          <thead>
+            <tr role="row">
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Longitude</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Latitude</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>House Age</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Annual Income</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Inland</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Near Ocean</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Near Bay</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Number of Rooms</b></th>
+              <th class="sorting" tabindex="0" aria-controls="inference_table" rowspan="1" colspan="1" aria-label="Application No: activate to sort column ascending" style="width: 130px; text-align: center"><b>Price Prediction</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <script>
+              for (var i = 0; i < {{data}}.length; i++) {
+              	document.write('<tr>');
+              		document.write('<td>' + {{data}}[i][0] + '</td>');
+              		document.write('<td>' + {{data}}[i][1] + '</td>');
+              		document.write('<td>' + {{data}}[i][2] + '</td>');
+              		document.write('<td>' + {{data}}[i][3] + '</td>');
+              		document.write('<td>' + {{data}}[i][4] + '</td>');
+              		document.write('<td>' + {{data}}[i][5] + '</td>');
+              		document.write('<td>' + {{data}}[i][6] + '</td>');
+              		document.write('<td>' + {{data}}[i][7] + '</td>');
+              		document.write('<td>' + {{data}}[i][8] + '</td>');
+              	document.write('</tr>');
+              }
+            </script>
+          </tbody>
+        </table>
 
-				<script>
-					$(document).ready(function ()
-					{
-						$.noConflict();
-						$('#inference_table').DataTable(
-						{
-							"paging": false // false to disable search (or any other option)
-						});
-						$('.dataTables_length').addClass('bs-select');
-					});
-				</script>
-										
-				
-										
-				
-			</div>
-			<div class="col-6 col-md-4" style="padding-top:0.65%">
-				<button class="btn btn-primary" type="submit" id="csvbutton">Download CSV</button>
-				<script>
-					function download_csv(html, filename) {
-						var csv = [];
-						var rows = document.querySelectorAll("table tr");
+        <script>
+          $(document).ready(function () {
+            $.noConflict();
+            $("#inference_table").DataTable({
+              paging: false, // false to disable search (or any other option)
+            });
+            $(".dataTables_length").addClass("bs-select");
+          });
+        </script>
+      </div>
+      <div class="col-6 col-md-4" style="padding-top: 0.65%">
+        <button class="btn btn-primary" type="submit" id="csvbutton">Download CSV</button>
+        <script>
+          function download_csv(html, filename) {
+            var csv = [];
+            var rows = document.querySelectorAll("table tr");
 
-						for (var i = 0; i < rows.length; i++) {
-							var row = [],
-							cols = rows[i].querySelectorAll("td, th");
+            for (var i = 0; i < rows.length; i++) {
+              var row = [],
+                cols = rows[i].querySelectorAll("td, th");
 
-							for (var j = 0; j < cols.length; j++)
-								row.push(cols[j].innerText);
-								
-								csv.push(row.join(","));
-						}
+              for (var j = 0; j < cols.length; j++) row.push(cols[j].innerText);
 
-						csv = csv.join("\n");
-						var csvFile;
-						var downloadLink;
+              csv.push(row.join(","));
+            }
 
-						csvFile = new Blob([csv], {
-							type: "text/csv"
-						});
+            csv = csv.join("\n");
+            var csvFile;
+            var downloadLink;
 
-						downloadLink = document.createElement("a");
-						downloadLink.download = filename;
-						downloadLink.href = window.URL.createObjectURL(csvFile);
-						downloadLink.style.display = "none";
-						document.body.appendChild(downloadLink);
-						downloadLink.click();
-					}
+            csvFile = new Blob([csv], {
+              type: "text/csv",
+            });
 
-					document.querySelector('#csvbutton').addEventListener("click", function() {
-						console.log("Made it here");
-						var html = document.querySelector("table").outerHTML;
-						download_csv(html, "table.csv");
-					});
-				</script>
-			</div>
-		</div>
-	</div>
+            downloadLink = document.createElement("a");
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+          }
+
+          document.querySelector("#csvbutton").addEventListener("click", function () {
+            var html = document.querySelector("table").outerHTML;
+            download_csv(html, "table.csv");
+          });
+        </script>
+      </div>
+    </div>
+  </div>
 </body>
 {% endblock %}
