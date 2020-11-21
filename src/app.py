@@ -53,7 +53,6 @@ def inference():
         req = [int(x) for x in request.form.values()]
         final_features = [np.array(req)]
         data = request.form.to_dict()
-        print(data)
 
         if not req:
             flash('Missing values')

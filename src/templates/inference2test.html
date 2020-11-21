@@ -1,6 +1,6 @@
 {% extends 'base2test.html' %} {% block content %}
 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-<h1 class="block-title" style="color:white">{% block title %} Enter House Details {% endblock %}</h1>
+<h1 class="block-title">{% block title %} Enter House Details {% endblock %}</h1>
 
 <form method="post">
   <div class="form-group">
@@ -42,7 +42,7 @@
     </div>
     -->
 </form>
-<h3 style="color:white">Prediction:</h3>
+<h3>Prediction:</h3>
 <p style="color:white">{{ price_prediction }}</p>
 <br />
 {% endblock %}
