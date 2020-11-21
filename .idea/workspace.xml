@@ -22,9 +22,20 @@
     <list default="true" id="6bdc1747-db5c-4b35-af07-bca3688a0925" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/styles/about2test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/styles/about3test.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/styles/about3test.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/styles/styles2test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/styles/styles3test.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/styles/styles3test.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/about3test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/about3test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base2test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base3test.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/inference.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/inference2test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/inference2test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/stored_inferences.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/stored_inferences.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/stored_inferences.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/stored_inferences2test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/stored_inferences2test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,26 +271,26 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.-309.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1604797784397" />
     <state x="2660" y="-34" key="FileChooserDialogImpl/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605308654344" />
-    <state width="1899" height="292" key="GridCell.Tab.0.bottom" timestamp="1605905605997">
+    <state width="1899" height="292" key="GridCell.Tab.0.bottom" timestamp="1605979345845">
       <screen x="1920" y="-309" width="1920" height="1040" />
     </state>
     <state width="1899" height="396" key="GridCell.Tab.0.bottom/1920.-309.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605623074401" />
-    <state width="1899" height="292" key="GridCell.Tab.0.bottom/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605905605997" />
-    <state width="1899" height="292" key="GridCell.Tab.0.center" timestamp="1605905605997">
+    <state width="1899" height="292" key="GridCell.Tab.0.bottom/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605979345845" />
+    <state width="1899" height="292" key="GridCell.Tab.0.center" timestamp="1605979345845">
       <screen x="1920" y="-309" width="1920" height="1040" />
     </state>
     <state width="1899" height="396" key="GridCell.Tab.0.center/1920.-309.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605623074401" />
-    <state width="1899" height="292" key="GridCell.Tab.0.center/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605905605997" />
-    <state width="1899" height="292" key="GridCell.Tab.0.left" timestamp="1605905605997">
+    <state width="1899" height="292" key="GridCell.Tab.0.center/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605979345845" />
+    <state width="1899" height="292" key="GridCell.Tab.0.left" timestamp="1605979345845">
       <screen x="1920" y="-309" width="1920" height="1040" />
     </state>
     <state width="1899" height="396" key="GridCell.Tab.0.left/1920.-309.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605623074401" />
-    <state width="1899" height="292" key="GridCell.Tab.0.left/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605905605997" />
-    <state width="1899" height="292" key="GridCell.Tab.0.right" timestamp="1605905605997">
+    <state width="1899" height="292" key="GridCell.Tab.0.left/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605979345845" />
+    <state width="1899" height="292" key="GridCell.Tab.0.right" timestamp="1605979345845">
       <screen x="1920" y="-309" width="1920" height="1040" />
     </state>
     <state width="1899" height="396" key="GridCell.Tab.0.right/1920.-309.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1605623074401" />
-    <state width="1899" height="292" key="GridCell.Tab.0.right/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605905605997" />
+    <state width="1899" height="292" key="GridCell.Tab.0.right/1920.-309.1920.1040/0.0.1920.1040@1920.-309.1920.1040" timestamp="1605979345845" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1604595080042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

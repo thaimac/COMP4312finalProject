@@ -1,50 +1,28 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /*border: solid 1px red;*/ /*view element spacing*/
-}
-
-i {
+.social-media i {
   color: #ef4b80;
 }
-
-i:visited {
+.navbar {
+  background-color: transparent;
+}
+.social-media i:visited {
   color: pink;
   background-color: transparent;
   text-decoration: none;
 }
-i:hover {
+.social-media i:hover {
   color: pink;
   background-color: transparent;
   text-decoration: underline;
 }
-i:active {
+.social-media i:active {
   color: hotpink;
   background-color: transparent;
   text-decoration: underline;
 }
-html {
-  font-size: 10px;
-  font-family: "Roboto", sans-serif;
-  color: #eee;
-}
 
-body {
+img {
   width: 100%;
-  height: 100%;
-  background: url("/static/webBG.jpg") no-repeat center fixed;
-  background-size: cover;
-}
-
-.navbar-brand {
-  font-family: initial !important;
-  font-size: initial !important;
-}
-
-.nav-link {
-  font-family: initial !important;
-  font-size: initial !important;
+  max-width: 100%;
 }
 
 section {
@@ -62,16 +40,14 @@ p:empty:before {
   content: "\200B";
   font-size: 3.6rem;
 }
-img {
-  width: 100%;
-  max-width: 100%;
-}
+
 .container {
   width: 100%;
-  max-width: 120rem;
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
   position: relative;
+  flex: 1;
 }
 
 .section-heading {
@@ -108,11 +84,13 @@ img {
   align-items: center;
 }
 
-li {
+.social-media li {
   margin: 0 2rem;
 }
-
-.about .container {
+.about {
+  margin-bottom: 20px;
+}
+.about .about-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,6 +106,7 @@ li {
 
 .about-heading h1 {
   font-size: 6rem;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .profile-img {
@@ -146,7 +125,7 @@ li {
 }
 
 .team {
-  margin-top: 10rem;
+  margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 2.5rem;
@@ -159,6 +138,7 @@ li {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  overflow: hidden;
 }
 
 .member h1 {
@@ -167,7 +147,11 @@ li {
   margin: 2rem -2px 2rem 0;
 }
 
-.image-container {
+.member .col {
+  flex: 1;
+}
+
+.image-wrapper {
   width: 20rem;
   height: 20rem;
   border: 2px solid #ef4b80;
@@ -175,7 +159,7 @@ li {
   border-radius: 50%;
 }
 
-.image-container img {
+.image-wrapper img {
   height: 20rem;
   width: 20rem;
   border-radius: 50%;
@@ -188,26 +172,24 @@ li {
   margin-right: auto;
   transition: 400ms;
 }
-.image-container:hover img {
+.image-wrapper:hover img {
   filter: grayscale(0);
 }
 
-.copyright {
-  width: 100%;
-  text-align: center;
-  background-color: #16162d;
-  padding: 1rem 0;
-  position: relative;
-}
+@media screen and (max-width: 1000px) {
+  .about .about-container {
+    flex-direction: column;
+  }
 
-.copyright p {
-  font-size: 1.5rem;
-  text-align: center;
+  .profile-img {
+    margin-left: 0;
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
   body {
-    background: url("/static/webBGWarp.jpg") no-repeat center fixed;
+    background: url("static/images/webBGWarp.jpg") no-repeat center fixed;
     background-size: cover;
   }
 
@@ -221,16 +203,5 @@ li {
 
   .section-heading h1 {
     font-size: 3rem;
-  }
-
-  .profile-img {
-    margin-left: 0;
-    margin-top: 4rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .about .container {
-    flex-direction: column;
   }
 }

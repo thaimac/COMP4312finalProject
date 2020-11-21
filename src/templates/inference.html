@@ -1,60 +1,48 @@
-{% extends 'base2test.html' %}
-
-{% block content %}
-<h1 style="color:grey">{% block title %} Enter House Details {% endblock %}</h1>
+{% extends 'base.html' %} {% block content %}
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<h1 class="block-title">{% block title %} Enter House Details {% endblock %}</h1>
 
 <form method="post">
-    <div class="form-group">
-        <label for="longitude">Longitude</label>
-        <input type="text" name="longitude"
-               placeholder="-117" class="form-control"
-               value="{{ request.form['longitude'] }}"/>
-        <label for="latitude">Latitude</label>
-        <input type="text" name="latitude"
-               placeholder="34" class="form-control"
-               value="{{ request.form['latitude'] }}"/>
-        <a href="https://www.latlong.net" target="_blank">Get latitude and longitude here (in order to maintain the integrity of
-        the model please select only from California)<br></a>
-        <label for="housing_median_age">Age of House</label>
-        <input type="text" name="housing_median_age"
-               placeholder="52" class="form-control"
-               value="{{ request.form['housing_median_age'] }}"/>
-        <label for="median_income">Income (in tens of thousands)</label>
-        <input type="text" name="median_income"
-               placeholder="70" class="form-control"
-               value="{{ request.form['median_income'] }}"/>
-        <div id="ocean_proximity">
-        <label><br><em>Ocean Proximity (Enter 1 if true and 0 if false. Only select 1 of the 3 options)</em></label><br>
-        <label for="inland">Inland</label>
-        <input type="text" name="ocean_proximity_INLAND"
-               placeholder="1" class="form-control"
-               value="{{ request.form['ocean_proximity_INLAND'] }}"/>
-        <label for="near_bay">Near Bay</label>
-        <input type="text" name="ocean_proximity_NEAR BAY"
-               placeholder="0" class="form-control"
-               value="{{ request.form['ocean_proximity_NEAR BAY'] }}"/>
-        <label for="near_ocean">Near Ocean</label>
-        <input type="text" name="ocean_proximity_NEAR OCEAN"
-               placeholder="0" class="form-control"
-               value="{{ request.form['ocean_proximity_NEAR OCEAN'] }}"/>
-        </div>
-            <br>
-        <label for="rooms_per_household">Rooms in House</label>
-        <input type="text" name="rooms_per_household"
-               placeholder="4" class="form-control"
-               value="{{ request.form['rooms_per_household'] }}"/>
+  <div class="form-group">
+    <label for="longitude"
+      ><span><span class="iconify" data-icon="tabler:world-longitude" data-inline="false"></span>Longitude</span></label
+    >
+    <input type="text" name="longitude" placeholder="-117" class="form-control" value="{{ request.form['longitude'] }}" />
+    <label for="latitude"
+      ><span><span class="iconify" data-icon="tabler:world-latitude" data-inline="false"></span>Latitude</span></label
+    >
+    <input type="text" name="latitude" placeholder="34" class="form-control" value="{{ request.form['latitude'] }}" />
+    <a href="https://www.latlong.net" target="_blank">Get latitude and longitude here (in order to maintain the integrity of the model please select only from California)<br /></a>
+    <br />
+    <label for="housing_median_age"><span>Age of House</span></label>
+    <input type="text" name="housing_median_age" placeholder="52" class="form-control" value="{{ request.form['housing_median_age'] }}" />
+    <label for="median_income"><span>Income (in tens of thousands)</span></label>
+    <input type="text" name="median_income" placeholder="70" class="form-control" value="{{ request.form['median_income'] }}" />
+    <div id="ocean_proximity">
+      <label><br /><span><em>Ocean Proximity (Enter 1 if true and 0 if false. Only select 1 of the 3 options)</span></em></label
+      ><br />
+      <label for="inland"><span>Inland</span></label>
+      <input type="text" name="ocean_proximity_INLAND" placeholder="1" class="form-control" value="{{ request.form['ocean_proximity_INLAND'] }}" />
+      <label for="near_bay"><span>Near Bay</span></label>
+      <input type="text" name="ocean_proximity_NEAR BAY" placeholder="0" class="form-control" value="{{ request.form['ocean_proximity_NEAR BAY'] }}" />
+      <label for="near_ocean"><span>Near Ocean</span></label>
+      <input type="text" name="ocean_proximity_NEAR OCEAN" placeholder="0" class="form-control" value="{{ request.form['ocean_proximity_NEAR OCEAN'] }}" />
     </div>
-        <br>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    <!--
+    <br />
+    <label for="rooms_per_household"><span>Rooms in House</span></label>
+    <input type="text" name="rooms_per_household" placeholder="4" class="form-control" value="{{ request.form['rooms_per_household'] }}" />
+  </div>
+  <br />
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <!--
     <div class="form-group">
         <button type="submit" class="btn btn-success">Save Results</button>
     </div>
     -->
 </form>
 <h3>Prediction:</h3>
-<p>{{ price_prediction }}</p>
-<br>
+<p style="color:white">{{ price_prediction }}</p>
+<br />
 {% endblock %}
